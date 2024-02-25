@@ -39,6 +39,15 @@
     </div>
   </nav>
 
+  <h1>Files in GitHub Repository</h1>
+  <ul>
+      {% for file in site.static_files %}
+          {% if file.path contains 'tenor/' %}
+              <li><a href="{{ file.path }}">{{ file.name }}</a></li>
+          {% endif %}
+      {% endfor %}
+  </ul>
+
 <div class="container mt-5">
   <h1 class="text-center">Zeleny Stvrtok</h1>
   <div class="accordion mt-3" id="songAccordion">
