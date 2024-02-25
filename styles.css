@@ -55,3 +55,6 @@
   font-size: 24px; /* Increase font size for larger buttons */
 }
 
+.card{
+  margin: 1em 0em;
+}

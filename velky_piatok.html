@@ -7,18 +7,18 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="https://lossdavos.github.io/styles.css">
   <link rel="stylesheet" href="styles.css">
-</head>  <script src="script.js"></script>
-
+</head>  
 <body>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">Veľká noc 2024</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-  
+    <a class="navbar-brand" href="index.html">Velka Noc 2024</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -41,22 +41,47 @@
   </nav>
 
 <div class="container mt-5">
-  <h1 class="text-center">Velky Piatok</h1>
-  <div class="accordion mt-3" id="songAccordion">
-    <div class="card">
-      <div class="card-header" id="song1Heading" data-toggle="collapse" data-target="#song1Collapse" aria-expanded="true" aria-controls="song1Collapse">
-        <h2 class="mb-0">
-          Song 1
-        </h2>
-      </div>
-
-      <div id="song1Collapse" class="collapse" aria-labelledby="song1Heading" data-parent="#songAccordion">
-        <div class="card-body">
-          This is a sample song description for Zeleny Stvrtok - Song 1.
-        </div>
-      </div>
+ <!-- Card deck to contain the songs -->
+<div class="container mt-5">
+    <h1 class="text-center">Zeleny Stvrtok - Tenor Songs</h1>
+    <div class="card-deck mt-3" id="songDeck">
+      <!-- Cards will be dynamically added here -->
     </div>
-    <!-- More songs can be added here -->
+  </div>
+  
+  <script>
+    // Fetch the list of songs from the 'tenor' folder
+    fetch(`https://lossdavos.github.io/${localStorage.getItem('vocalGroup')}/`)
+    .then(response => response.text())
+      .then(data => {
+        // Parse the HTML response
+        const parser = new DOMParser();
+        const htmlDoc = parser.parseFromString(data, 'text/html');
+        const links = htmlDoc.querySelectorAll('a');
+  
+        // Get the card deck container
+        const songDeck = document.getElementById('songDeck');
+  
+        // Iterate over the links (songs) and create a card for each one
+        links.forEach(link => {
+          const songName = link.getAttribute('href');
+  
+          // Create a card element
+          const card = document.createElement('div');
+          card.classList.add('card');
+          card.innerHTML = `
+            <div class="card-body">
+              <h5 class="card-title">${songName}</h5>
+            </div>
+          `;
+  
+          // Append the card to the card deck
+          songDeck.appendChild(card);
+        });
+      })
+      .catch(error => console.error('Error fetching songs:', error));
+  </script>
+  
   </div>
 </div>
 

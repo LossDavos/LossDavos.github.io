@@ -3,55 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Veľká noc 2024</title>
+  <title>Choose Vocal Group</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" type="text/css" href="https://lossdavos.github.io/styles.css">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">Veľká noc 2024</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Hlasy</a>
-        </li>  
-        <li class="nav-item">
-          <a class="nav-link Zeleny" href="zeleny_stvrtok.html">Zeleny Stvrtok</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link Velky" href="velky_piatok.html">Velky Piatok</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link Biela" href="biela_sobota.html">Biela Sobota</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link Velkonocna" href="velkonocna_nedela.html">Velkonocna Nedela</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <body>
-    <div class="container mt-5">
-      <h1 class="text-center">Vyber Den</h1>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <a class="btn btn-lg btn-block mb-3 btnZeleny" href="zeleny_stvrtok.html">Zeleny Stvrtok</a>
-          <a class="btn  btn-lg btn-block mb-3 btnVelky" href="velky_piatok.html">Velky Piatok</a>
-          <a class="btn btn-lg btn-block mb-3 btnBiela" href="biela_sobota.html">Biela Sobota</a>
-          <a class="btn btn-lg btn-block btnVelkonocna" href="velkonocna_nedela.html">Velkonocna Nedela</a>
-        </div>
-      </div>
-    </div>
 
-  <!-- Bootstrap JS and jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div class="container mt-5">
+  <h1 class="text-center">Choose Your Vocal Group</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <button class="btn btn-primary btn-lg btn-block mb-3" onclick="chooseVocalGroup('tenor')">Tenor</button>
+      <button class="btn btn-success btn-lg btn-block mb-3" onclick="chooseVocalGroup('bass')">Bass</button>
+      <button class="btn btn-warning btn-lg btn-block mb-3" onclick="chooseVocalGroup('soprano')">Soprano</button>
+      <button class="btn btn-info btn-lg btn-block" onclick="chooseVocalGroup('alto')">Alto</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function chooseVocalGroup(group) {
+  // Store the chosen vocal group in local storage
+  localStorage.setItem('vocalGroup', group);
+  
+  // Redirect to the index page
+  window.location.href = 'index1.html';
+}
+</script>
+
 </body>
 </html>
