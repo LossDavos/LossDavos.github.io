@@ -39,76 +39,46 @@
     </div>
   </nav>
 
-  <h1>Files in GitHub Repository</h1>
-  <ul>
-      {% for file in site.static_files %}
-          {% if file.path contains 'tenor/' %}
-              <li><a href="{{ file.path }}">{{ file.name }}</a></li>
-          {% endif %}
-      {% endfor %}
-  </ul>
-
 <div class="container mt-5">
   <h1 class="text-center">Zeleny Stvrtok</h1>
   <div class="accordion mt-3" id="songAccordion">
-
+    <div class="card-header btnZeleny" id="s1Heading" data-toggle="collapse" data-target="#s1Collapse" aria-expanded="true" aria-controls="s1Collapse">
+        <h2 class="mb-0">
+            Kde je laska opravdiva
+        </h2>
+    </div>
+    <div id="s1Collapse" class="collapse" aria-labelledby="s1Heading" data-parent="#songAccordion">
+        <div class="card-body" id="content1" onload="displayFileContent(1,'Kde je laska')">
+        </div>
+    </div>
     <!-- More songs can be added here -->
   </div>
 </div>
 
 <script>
     // Define the GitHub repository URL and folder path
-    const repoUrl = './';
+    const repoUrl = '';
     const folderPath = `${localStorage.getItem('vocalGroup')}/`;
-  
+    function displayFileContent(id, name){
     // Fetch the list of files from the folder
-    fetch(`${repoUrl}${folderPath}`)
-    .then(response => response.json())
-    .then(files => {
-        files.sort((a, b) => {
-        const numberA = parseInt(a.name.split(': ')[0]);
-        const numberB = parseInt(b.name.split(': ')[0]);
-        return numberA - numberB;
-      });
-      // Get the card deck container
-      const songDeck = document.getElementById('songAccordion');
 
-      // Iterate over the files
-      files.forEach((file, index) => {
-        // Fetch the content of each file
-        fetch(file.download_url)
-          .then(response => response.text())
-          .then(content => {
-            const fileNameParts = file.name.split(': ');
-            const songName = fileNameParts.length > 1 ? fileNameParts[1] : file.name;
+        // Get the card deck container
+        const songDeck = document.getElementById(`content${id}`);
 
-            const songContent = content;
+        // Iterate over the files
+            // Fetch the content of each file
+        fetch(`${repoUrl}${folderPath}${name}`)
+            .then(response => response.text())
+            .then(content => {
+                const songContent = content;
 
-            // Create a card element
-            const card = document.createElement('div');
-            card.classList.add('card');
+            })
+            .catch(error => console.error('Error fetching song content:', error));
+        }
 
-            card.innerHTML = `
-            <div class="card-header btnZeleny" id="s${index}Heading" data-toggle="collapse" data-target="#s${index}Collapse" aria-expanded="true" aria-controls="s${index}Collapse">
-                <h2 class="mb-0">
-                    ${songName}
-                </h2>
-            </div>
-            <div id="s${index}Collapse" class="collapse" aria-labelledby="s${index}Heading" data-parent="#songAccordion">
-                <div class="card-body">
-                    ${songContent}
-                </div>
-            </div>
-            `;
-
-            // Append the card to the card deck
-            songDeck.appendChild(card);
-          })
-          .catch(error => console.error('Error fetching song content:', error));
-      });
-    })
-    .catch(error => console.error('Error fetching files:', error));
-  </script>
+        displayFileContent(1,'Kde je laska')
+        
+    </script>
 
 <!-- Bootstrap JS and jQuery -->
   <!-- Bootstrap JS and jQuery -->
