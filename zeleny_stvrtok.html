@@ -42,22 +42,38 @@
 <div class="container mt-5">
   <h1 class="text-center">Zeleny Stvrtok</h1>
   <div class="accordion mt-3" id="songAccordion">
-    <div class="card-header btnZeleny" id="s1Heading" data-toggle="collapse" data-target="#s1Collapse" aria-expanded="true" aria-controls="s1Collapse">
-        <h2 class="mb-0">
-            Kde je laska opravdiva
-        </h2>
-    </div>
-    <div id="s1Collapse" class="collapse" aria-labelledby="s1Heading" data-parent="#songAccordion">
-        <div class="card-body" id="content1" onload="displayFileContent(1,'Kde je laska')">
+    <div class="card">
+        <div class="card-header btnZeleny" id="s1Heading" data-toggle="collapse" data-target="#s1Collapse" aria-expanded="true" aria-controls="s1Collapse">
+            <h2 class="mb-0">
+                Kde je laska opravdiva
+            </h2>
+        </div>
+        <div id="s1Collapse" class="collapse" aria-labelledby="s1Heading" data-parent="#songAccordion">
+            <div class="card-body" id="content1" >
+            </div>
         </div>
     </div>
+
+    <div class="card">
+
+        <div class="card-header btnZeleny" id="s2Heading" data-toggle="collapse" data-target="#s2Collapse" aria-expanded="true" aria-controls="s2Collapse">
+            <h2 class="mb-0">
+                Zostante a bdejte so mnou
+            </h2>
+        </div>
+        <div id="s2Collapse" class="collapse" aria-labelledby="s2Heading" data-parent="#songAccordion">
+            <div class="card-body" id="content2" >
+            </div>
+        </div>
+    </div>
+
     <!-- More songs can be added here -->
   </div>
 </div>
 
 <script>
     // Define the GitHub repository URL and folder path
-    const repoUrl = '';
+    const repoUrl = 'https://lossdavos.github.io/';
     const folderPath = `${localStorage.getItem('vocalGroup')}/`;
     function displayFileContent(id, name){
     // Fetch the list of files from the folder
@@ -70,13 +86,17 @@
         fetch(`${repoUrl}${folderPath}${name}`)
             .then(response => response.text())
             .then(content => {
-                const songContent = content;
+                content = content.replace(/\n/g, '<br>');
 
+                songDeck.innerHTML = content;
             })
             .catch(error => console.error('Error fetching song content:', error));
         }
+        window.onload = function() {
 
-        displayFileContent(1,'Kde je laska')
+        displayFileContent(1,'Kde je laska');
+        displayFileContent(2,'Zostante a bdejte so mnou');
+        }
         
     </script>
 
