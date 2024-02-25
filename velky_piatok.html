@@ -8,9 +8,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
-</head>
+</head>  <script src="script.js"></script>
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">Veľká noc 2024</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -19,13 +22,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Hlasy</a>
-        </li>  
+            <a class="nav-link" href="index.html">Hlavna stranka</a>
+          </li>  
         <li class="nav-item">
           <a class="nav-link Zeleny" href="zeleny_stvrtok.html">Zeleny Stvrtok</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link Velky" href="velky_piatok.html">Velky Piatok</a>
+          <a class="nav-link aVelky" href="velky_piatok.html">Velky Piatok</a>
         </li>
         <li class="nav-item">
           <a class="nav-link Biela" href="biela_sobota.html">Biela Sobota</a>
@@ -36,22 +39,32 @@
       </ul>
     </div>
   </nav>
-  <body>
-    <div class="container mt-5">
-      <h1 class="text-center">Vyber Den</h1>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <a class="btn btn-lg btn-block mb-3 btnZeleny" href="zeleny_stvrtok.html">Zeleny Stvrtok</a>
-          <a class="btn  btn-lg btn-block mb-3 btnVelky" href="velky_piatok.html">Velky Piatok</a>
-          <a class="btn btn-lg btn-block mb-3 btnBiela" href="biela_sobota.html">Biela Sobota</a>
-          <a class="btn btn-lg btn-block btnVelkonocna" href="velkonocna_nedela.html">Velkonocna Nedela</a>
+
+<div class="container mt-5">
+  <h1 class="text-center">Velky Piatok</h1>
+  <div class="accordion mt-3" id="songAccordion">
+    <div class="card">
+      <div class="card-header" id="song1Heading" data-toggle="collapse" data-target="#song1Collapse" aria-expanded="true" aria-controls="song1Collapse">
+        <h2 class="mb-0">
+          Song 1
+        </h2>
+      </div>
+
+      <div id="song1Collapse" class="collapse" aria-labelledby="song1Heading" data-parent="#songAccordion">
+        <div class="card-body">
+          This is a sample song description for Zeleny Stvrtok - Song 1.
         </div>
       </div>
     </div>
+    <!-- More songs can be added here -->
+  </div>
+</div>
 
+<!-- Bootstrap JS and jQuery -->
   <!-- Bootstrap JS and jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
 </body>
 </html>

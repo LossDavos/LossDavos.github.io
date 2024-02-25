@@ -1,24 +1,57 @@
-.card-body {
-    display: none;
+.navbar {
+    margin-bottom: 0; 
+    padding-bottom: 0;/* Remove margin from the navbar */
   }
-  
-  .dropdown-item.Zeleny {
-    background-color: green;
-    color: white;
-  }
-  
-  .dropdown-item.Velky {
-    background-color: red;
-    color: white;
-  }
-  
-  .dropdown-item.Biela {
-    background-color: blue;
-    color: white;
-  }
-  
-  .dropdown-item.Velkonocna {
-    background-color: purple;
-    color: white;
-  }
-  
+.Zeleny {
+  background: linear-gradient(180deg, rgba(2,0,36,0) 68%, rgba(30,135,33,0.2329306722689075) 87%, rgba(21,97,21,0.5158438375350141) 92%);
+}
+
+.Velky {
+  background: linear-gradient(180deg, rgba(2,0,36,0) 68%, rgba(181,88,88,0.2329306722689075) 87%, rgba(176,57,55,0.5158438375350141) 92%);
+}
+
+.Biela {
+  background: linear-gradient(180deg, rgba(2,0,36,0) 68%, rgba(110,139,156,0.2329306722689075) 87%, rgba(165,189,201,0.5158438375350141) 92%);
+}
+
+.Velkonocna {
+  background: linear-gradient(180deg, rgba(2,0,36,0) 68%, rgba(24,142,208,0.2329306722689075) 87%, rgba(30,140,198,0.5158438375350141) 92%);
+}
+
+.aZeleny {
+  background: linear-gradient(180deg, rgba(2,0,36,0) 17%, rgba(30,135,33,0.2329306722689075) 69%, rgba(21,97,21,0.5158438375350141) 85%);
+}
+
+.aVelky {
+  background: linear-gradient(180deg, rgba(2,0,36,0) 17%, rgba(181,88,88,0.2329306722689075) 69%, rgba(176,57,55,0.5158438375350141) 85%);
+}
+
+.aBiela {
+  background: linear-gradient(180deg, rgba(2,0,36,0) 17%, rgba(110,139,156,0.2329306722689075) 69%,rgba(165,189,201,0.5158438375350141) 85%);
+}
+
+.aVelkonocna {
+  background: linear-gradient(180deg, rgba(2,0,36,0) 17%, rgba(24,142,208,0.2329306722689075) 69%,  rgba(30,140,198,0.5158438375350141) 85%);
+}
+
+.btnZeleny {
+  background-color:  rgba(30,135,33,0.7);
+}
+
+.btnVelky {
+  background:  rgba(181,88,88,0.7);
+}
+
+.btnBiela {
+  background: rgba(186, 213, 229, 0.7);
+}
+
+.btnVelkonocna {
+  background:  rgba(110, 194, 240, 0.7);
+}
+
+.btn-lg {
+  padding: 20px; /* Increase padding for larger buttons */
+  font-size: 24px; /* Increase font size for larger buttons */
+}
+
