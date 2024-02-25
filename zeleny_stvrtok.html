@@ -65,7 +65,9 @@
         fetch(file.download_url)
           .then(response => response.text())
           .then(content => {
-            const songName = file.name;
+            const fileNameParts = file.name.split(': ');
+            const songName = fileNameParts.length > 1 ? fileNameParts[1] : file.name;
+
             const songContent = content;
 
             // Create a card element
