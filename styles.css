@@ -1,0 +1,24 @@
+.card-body {
+    display: none;
+  }
+  
+  .dropdown-item.Zeleny {
+    background-color: green;
+    color: white;
+  }
+  
+  .dropdown-item.Velky {
+    background-color: red;
+    color: white;
+  }
+  
+  .dropdown-item.Biela {
+    background-color: blue;
+    color: white;
+  }
+  
+  .dropdown-item.Velkonocna {
+    background-color: purple;
+    color: white;
+  }
+  

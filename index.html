@@ -1,1 +1,41 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Selection</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Music Selection</h1>
+    <!-- Menu -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select Day
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item Zeleny" href="#" onclick="showSongs('Zeleny Stvrtok')">Zeleny Stvrtok</a>
+        <a class="dropdown-item Velky" href="#" onclick="showSongs('Velky Piatok')">Velky Piatok</a>
+        <a class="dropdown-item Biela" href="#" onclick="showSongs('Biela Sobota')">Biela Sobota</a>
+        <a class="dropdown-item Velkonocna" href="#" onclick="showSongs('Velkonocna Nedela')">Velkonocna Nedela</a>
+      </div>
+    </div>
+    <hr>
+    <!-- Cards -->
+    <div id="songCards">
+      <!-- Cards will be dynamically added here -->
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
