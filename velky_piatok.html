@@ -48,42 +48,44 @@
       <!-- Cards will be dynamically added here -->
     </div>
   </div>
-  
+  <div id="file-container" class="container"></div>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1565.0.min.js"></script>
   <script>
-    // Fetch the list of songs from the 'tenor' folder
-    fetch(`https://lossdavos.github.io/${localStorage.getItem('vocalGroup')}/`)
-    .then(response => response.text())
-      .then(data => {
-        // Parse the HTML response
-        const parser = new DOMParser();
-        const htmlDoc = parser.parseFromString(data, 'text/html');
-        const links = htmlDoc.querySelectorAll('a');
+    function displayFiles() {
+    AWS.config.update({
+      region: 'eu-north-1', // e.g., 'us-east-1'
+    });
+      const bucketName = 'vn2024';
+      const folderName = 'tenor/';
+      const s3 = new AWS.S3();
   
-        // Get the card deck container
-        const songDeck = document.getElementById('songDeck');
+      const params = {
+        Bucket: bucketName,
+        Prefix: folderName,
+      };
   
-        // Iterate over the links (songs) and create a card for each one
-        links.forEach(link => {
-          const songName = link.getAttribute('href');
+      s3.listObjects(params, function(err, data) {
+        if (err) {
+          console.log(err, err.stack);
+        } else {
+          const container = document.getElementById('file-container');
+          data.Contents.forEach(file => {
+            const card = document.createElement('div');
+            card.className = 'card mb-3';
+            card.innerHTML = `
+              <div class="card-body">
+                <h5 class="card-title">${file.Key}</h5>
+                <p class="card-text">File size: ${file.Size} bytes</p>
+              </div>
+            `;
+            container.appendChild(card);
+          });
+        }
+      });
+    }
   
-          // Create a card element
-          const card = document.createElement('div');
-          card.classList.add('card');
-          card.innerHTML = `
-            <div class="card-body">
-              <h5 class="card-title">${songName}</h5>
-            </div>
-          `;
-  
-          // Append the card to the card deck
-          songDeck.appendChild(card);
-        });
-      })
-      .catch(error => console.error('Error fetching songs:', error));
+    displayFiles();
   </script>
-  
-  </div>
-</div>
 
 <!-- Bootstrap JS and jQuery -->
   <!-- Bootstrap JS and jQuery -->
