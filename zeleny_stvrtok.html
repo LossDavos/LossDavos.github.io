@@ -56,6 +56,11 @@
     fetch(`${repoUrl}${folderPath}`)
     .then(response => response.json())
     .then(files => {
+        files.sort((a, b) => {
+        const numberA = parseInt(a.name.split(': ')[0]);
+        const numberB = parseInt(b.name.split(': ')[0]);
+        return numberA - numberB;
+      });
       // Get the card deck container
       const songDeck = document.getElementById('songAccordion');
 
