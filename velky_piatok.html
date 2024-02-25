@@ -1,59 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public S3 Bucket Listing</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veľká noc 2024</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="https://lossdavos.github.io/styles.css">
+  <link rel="stylesheet" href="styles.css">
+</head> 
 <body>
- <!-- Card deck to contain the songs -->
-<div class="container mt-5">
-    <h1 class="text-center">Zeleny Stvrtok - Tenor Songs</h1>
-    <div class="card-deck mt-3" id="songDeck">
-      <!-- Cards will be dynamically added here -->
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Velka Noc 2024</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="index.html">Hlavna stranka</a>
+          </li>  
+        <li class="nav-item">
+          <a class="nav-link aZeleny" href="zeleny_stvrtok.html">Zeleny Stvrtok</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link Velky" href="velky_piatok.html">Velky Piatok</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link Biela" href="biela_sobota.html">Biela Sobota</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link Velkonocna" href="velkonocna_nedela.html">Velkonocna Nedela</a>
+        </li>
+      </ul>
     </div>
-  </div>
-  
-  <script>
-    // Define the GitHub repository URL and folder path
-    const repoUrl = 'https://api.github.com/repos/LossDavos/LossDavos.github.io/contents/';
-    const folderPath = `${localStorage.getItem('vocalGroup')}/`;
-  
-    // Fetch the list of files from the folder
-    fetch(`${repoUrl}${folderPath}`)
-    .then(response => response.json())
-    .then(files => {
-      // Get the card deck container
-      const songDeck = document.getElementById('songDeck');
+  </nav>
 
-      // Iterate over the files
-      files.forEach(file => {
-        // Fetch the content of each file
-        fetch(file.download_url)
-          .then(response => response.text())
-          .then(content => {
-            const songName = file.name;
-            const songContent = content;
-
-            // Create a card element
-            const card = document.createElement('div');
-            card.classList.add('card');
-            card.innerHTML = `
-              <div class="card-body">
-                <h5 class="card-title">${songName}</h5>
-                <p class="card-text">${songContent}</p>
-              </div>
-            `;
-
-            // Append the card to the card deck
-            songDeck.appendChild(card);
-          })
-          .catch(error => console.error('Error fetching song content:', error));
-      });
-    })
-    .catch(error => console.error('Error fetching files:', error));
-  </script>
+<div class="container mt-5">
+    <h1 class="text-center">Velky piatok</h1>
+    <div class="accordion mt-3" id="songAccordion">
+        <div class="card">
+            <div class="card-header btnVelky" id="s1Heading" data-toggle="collapse" data-target="#s1Collapse" aria-expanded="true" aria-controls="s1Collapse">
+                <h2 class="mb-0">
+                    Poklona: Lud moj narod
+                </h2>
+            </div>
+            <div id="s1Collapse" class="collapse" aria-labelledby="s1Heading" data-parent="#songAccordion">
+                <div class="card-body" id="content1" >
+                </div>
+            </div>
+        </div>
+    
+        <div class="card">
+    
+        <div class="card-header btnVelky" id="s2Heading" data-toggle="collapse" data-target="#s2Collapse" aria-expanded="true" aria-controls="s2Collapse">
+            <h2 class="mb-0">
+                O: Kriz je znakom spasy
+            </h2>
+        </div>
+        <div id="s2Collapse" class="collapse" aria-labelledby="s2Heading" data-parent="#songAccordion">
+            <div class="card-body" id="content2" >
+            </div>
+        </div>
+    </div>
+    
+        <div class="card">
+    
+            <div class="card-header btnVelky" id="s3Heading" data-toggle="collapse" data-target="#s3Collapse" aria-expanded="true" aria-controls="s3Collapse">
+                <h2 class="mb-0">
+                    P: Kam kracas Pane? (Quo Vadis)
+                </h2>
+            </div>
+            <div id="s3Collapse" class="collapse" aria-labelledby="s3Heading" data-parent="#songAccordion">
+                <div class="card-body" id="content3" >
+                </div>
+            </div>
+        </div>
+    
+        <div class="card">
+    
+            <div class="card-header btnVelky" id="s4Heading" data-toggle="collapse" data-target="#s4Collapse" aria-expanded="true" aria-controls="s4Collapse">
+                <h2 class="mb-0">
+                    P: Po ceste kracal
+                </h2>
+            </div>
+            <div id="s4Collapse" class="collapse" aria-labelledby="s4Heading" data-parent="#songAccordion">
+                <div class="card-body" id="content4" >
+                </div>
+            </div>
+        </div>
+        
+    
+        <!-- More songs can be added here -->
+    </div>
+    </div>
+    
+    <script>
+        // Define the GitHub repository URL and folder path
+        const repoUrl = 'https://lossdavos.github.io/';
+        const folderPath = `${localStorage.getItem('vocalGroup')}/piatok/`;
+        function displayFileContent(id, name){
+        // Fetch the list of files from the folder
+    
+            // Get the card deck container
+            const songDeck = document.getElementById(`content${id}`);
+    
+            // Iterate over the files
+                // Fetch the content of each file
+            fetch(`${repoUrl}${folderPath}${name}`)
+                .then(response => response.text())
+                .then(content => {
+                    content = content.replace(/\n/g, '<br>');
+    
+                    songDeck.innerHTML = content;
+                })
+                .catch(error => console.error('Error fetching song content:', error));
+            }
+            window.onload = function() {
+    
+            displayFileContent(1,'Lud moj narod');
+            displayFileContent(2,'Kriz je znakom');
+            displayFileContent(3,'Quo Vadis');
+    
+            displayFileContent(4,'Po ceste kracal');
+    
+            }
+            
+        </script>
   
+
+<!-- Bootstrap JS and jQuery -->
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
 </body>
 </html>

@@ -42,25 +42,111 @@
     </div>
   </nav>
 
-<div class="container mt-5">
-  <h1 class="text-center">Biela Sobota</h1>
-  <div class="accordion mt-3" id="songAccordion">
-    <div class="card">
-      <div class="card-header" id="song1Heading" data-toggle="collapse" data-target="#song1Collapse" aria-expanded="true" aria-controls="song1Collapse">
-        <h2 class="mb-0">
-          Song 1
-        </h2>
-      </div>
-
-      <div id="song1Collapse" class="collapse" aria-labelledby="song1Heading" data-parent="#songAccordion">
-        <div class="card-body">
-          This is a sample song description for Zeleny Stvrtok - Song 1.
+  <div class="container mt-5">
+    <h1 class="text-center">Biela Sobota</h1>
+    <div class="accordion mt-3" id="songAccordion">
+        <div class="card">
+            <div class="card-header btnVelky" id="s1Heading" data-toggle="collapse" data-target="#s1Collapse" aria-expanded="true" aria-controls="s1Collapse">
+                <h2 class="mb-0">
+                    O: Vinny Kmen
+                </h2>
+            </div>
+            <div id="s1Collapse" class="collapse" aria-labelledby="s1Heading" data-parent="#songAccordion">
+                <div class="card-body" id="content1" >
+                </div>
+            </div>
         </div>
-      </div>
+    
+        <div class="card">
+    
+        <div class="card-header btnVelky" id="s2Heading" data-toggle="collapse" data-target="#s2Collapse" aria-expanded="true" aria-controls="s2Collapse">
+            <h2 class="mb-0">
+                P: On vstal z mrtvych
+            </h2>
+        </div>
+        <div id="s2Collapse" class="collapse" aria-labelledby="s2Heading" data-parent="#songAccordion">
+            <div class="card-body" id="content2" >
+            </div>
+        </div>
     </div>
-    <!-- More songs can be added here -->
-  </div>
-</div>
+    
+        <div class="card">
+    
+            <div class="card-header btnVelky" id="s3Heading" data-toggle="collapse" data-target="#s3Collapse" aria-expanded="true" aria-controls="s3Collapse">
+                <h2 class="mb-0">
+                    P: Nech ten chram
+                </h2>
+            </div>
+            <div id="s3Collapse" class="collapse" aria-labelledby="s3Heading" data-parent="#songAccordion">
+                <div class="card-body" id="content3" >
+                </div>
+            </div>
+        </div>
+    
+        <div class="card">
+    
+            <div class="card-header btnVelky" id="s4Heading" data-toggle="collapse" data-target="#s4Collapse" aria-expanded="true" aria-controls="s4Collapse">
+                <h2 class="mb-0">
+                    P: Pokoj Vam
+                </h2>
+            </div>
+            <div id="s4Collapse" class="collapse" aria-labelledby="s4Heading" data-parent="#songAccordion">
+                <div class="card-body" id="content4" >
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+    
+            <div class="card-header btnVelky" id="s5Heading" data-toggle="collapse" data-target="#s5Collapse" aria-expanded="true" aria-controls="s5Collapse">
+                <h2 class="mb-0">
+                    Z: Jezis zije
+                </h2>
+            </div>
+            <div id="s5Collapse" class="collapse" aria-labelledby="s5Heading" data-parent="#songAccordion">
+                <div class="card-body" id="content5" >
+                </div>
+            </div>
+        </div>
+        
+    
+        <!-- More songs can be added here -->
+    </div>
+    </div>
+    
+    <script>
+        // Define the GitHub repository URL and folder path
+        const repoUrl = 'https://lossdavos.github.io/';
+        const folderPath = `${localStorage.getItem('vocalGroup')}/sobota/`;
+        function displayFileContent(id, name){
+        // Fetch the list of files from the folder
+    
+            // Get the card deck container
+            const songDeck = document.getElementById(`content${id}`);
+    
+            // Iterate over the files
+                // Fetch the content of each file
+            fetch(`${repoUrl}${folderPath}${name}`)
+                .then(response => response.text())
+                .then(content => {
+                    content = content.replace(/\n/g, '<br>');
+    
+                    songDeck.innerHTML = content;
+                })
+                .catch(error => console.error('Error fetching song content:', error));
+            }
+            window.onload = function() {
+    
+            displayFileContent(1,'Vinny kmen');
+            displayFileContent(2,'On vstal');
+            displayFileContent(3,'Nech ten chram');
+    
+            displayFileContent(4,'Pokoj vam');
+            displayFileContent(5,'Jezis zije');
+    
+            }
+            
+        </script>
 
 <!-- Bootstrap JS and jQuery -->
   <!-- Bootstrap JS and jQuery -->
