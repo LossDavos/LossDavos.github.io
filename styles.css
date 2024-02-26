@@ -58,3 +58,7 @@
 .card{
   margin: 1em 0em;
 }
+
+.card-body{
+  color:black;
+}
