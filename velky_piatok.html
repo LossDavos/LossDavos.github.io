@@ -43,6 +43,17 @@
     <h1 class="text-center">Veľký piatok</h1>
     <div class="accordion mt-3" id="songAccordion">
         <div class="card">
+            <div class="card-header btnVelky" id="s5Heading" data-toggle="collapse" data-target="#s5Collapse" aria-expanded="true" aria-controls="s5Collapse">
+                <h2 class="mb-0">
+                    Pašie
+                </h2>
+            </div>
+            <div id="s5Collapse" class="collapse" aria-labelledby="s5Heading" data-parent="#songAccordion">
+                <div class="card-body" id="content5" >
+                </div>
+            </div>
+        </div>
+        <div class="card">
             <div class="card-header btnVelky" id="s1Heading" data-toggle="collapse" data-target="#s1Collapse" aria-expanded="true" aria-controls="s1Collapse">
                 <h2 class="mb-0">
                     Poklona: Ľud môj národ
@@ -126,6 +137,8 @@
             displayFileContent(3,'Quo Vadis');
     
             displayFileContent(4,'Po ceste kracal');
+            displayFileContent(5,'Pasie');
+
     
             }
             
