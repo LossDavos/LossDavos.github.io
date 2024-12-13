@@ -32,10 +32,12 @@
 
         .emoji {
             font-size: 2.5rem;
+            text-align: center;
+            margin: 10px;
         }
 
         .carousel {
-            width: 80%;
+            width: 90%;  /* Adjusted width to be more responsive */
             max-width: 600px;
             position: relative;
             overflow: hidden;
@@ -83,6 +85,43 @@
             margin-top: 20px;
             font-size: 1rem;
             color: #fff;
+        }
+
+        /* Media Queries for smaller screens */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .emoji {
+                font-size: 2rem;
+            }
+
+            .carousel-controls button {
+                font-size: 1.2rem;
+            }
+
+            footer {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .emoji {
+                font-size: 1.8rem;
+            }
+
+            .carousel-controls button {
+                font-size: 1rem;
+            }
+
+            footer {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
