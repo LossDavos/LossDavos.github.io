@@ -1,35 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Choose Vocal Group</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Name Day Lucka</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #333;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin: 20px;
+            color: #fff;
+        }
+
+        h1 span {
+            font-size: 4rem;
+        }
+
+        .emoji {
+            font-size: 2.5rem;
+        }
+
+        .carousel {
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+
+        .carousel img {
+            width: 100%;
+            display: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .carousel img.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-controls button {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .carousel-controls button:hover {
+            background: #fff;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
+    <h1>
+        🎉 Happy Name Day, <span>Lucka</span>! 🎂🎈
+    </h1>
+    <p class="emoji">💐🌟 Wishing you a day filled with joy and love! 💕</p>
 
-<div class="container mt-5">
-  <h1 class="text-center">Vyber svoj hlas</h1>
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <button class="btn btn-primary btn-lg btn-block mb-3" onclick="chooseVocalGroup('tenor')">Tenor</button>
-      <button class="btn btn-success btn-lg btn-block mb-3" onclick="chooseVocalGroup('bass')">Bass</button>
-      <button class="btn btn-warning btn-lg btn-block mb-3" onclick="chooseVocalGroup('soprano')">Soprano</button>
-      <button class="btn btn-info btn-lg btn-block" onclick="chooseVocalGroup('alto')">Alto</button>
+    <div class="carousel">
+        <img src="https://via.placeholder.com/600x400/FF9A9E/ffffff?text=Happy+Name+Day" class="active" alt="Happy Name Day">
+        <img src="https://via.placeholder.com/600x400/FAD0C4/ffffff?text=Stay+Awesome" alt="Stay Awesome">
+        <img src="https://via.placeholder.com/600x400/FF9A9E/ffffff?text=Have+a+Great+Day!" alt="Have a Great Day!">
+
+        <div class="carousel-controls">
+            <button id="prev">&#9664;</button>
+            <button id="next">&#9654;</button>
+        </div>
     </div>
-  </div>
-</div>
 
-<script>
-function chooseVocalGroup(group) {
-  // Store the chosen vocal group in local storage
-  localStorage.setItem('vocalGroup', group);
-  
-  // Redirect to the index page
-  window.location.href = 'index1.html';
-}
-</script>
+    <footer>
+        Made with ❤️ for Lucka's special day.
+    </footer>
 
+    <script>
+        const images = document.querySelectorAll('.carousel img');
+        let currentIndex = 0;
+
+        document.getElementById('next').addEventListener('click', () => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            images[currentIndex].classList.add('active');
+        });
+    </script>
 </body>
 </html>
+
